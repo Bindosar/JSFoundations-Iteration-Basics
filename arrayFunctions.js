@@ -10,6 +10,9 @@
  */
 function getOdds(numbers) {
   // Your code here
+  return numbers.filter(function (number) {
+    return number % 2 !== 0;
+  });
 }
 
 /**
@@ -24,20 +27,32 @@ function getOdds(numbers) {
  */
 function getEvens(numbers) {
   // Your code here
+  return numbers.filter(function (number) {
+    return number % 2 === 0;
+  });
 }
 
 /**
  * getDuplicateCount(x, numbers):
- * - receives a number `x`, and an array of numbers called `numbers`
- * - returns the number of times `x` occurs in `numbers`.
+ * -
  *
  * e.g.
- * getDuplicateCount(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12, 13]) -> 4
+ * getDuplicateCount(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12,13 ]) -> 4
  * getDuplicateCount(52, [11, 35, 52, 14, 56, 601, 52, 777, 888, 999, 52]) -> 3
  */
 function getDuplicateCount(x, numbers) {
   // Your code here
+  let count = 0;
+  numbers.forEach(function (number) {
+    if (number === x) {
+      count++;
+    }
+  });
+  return count;
 }
+console.log(
+  getDuplicateCount(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12, 13])
+);
 
 /**
  * makeThemDoctors(students):
@@ -50,6 +65,9 @@ function getDuplicateCount(x, numbers) {
 
 function makeThemDoctors(students) {
   // Your code here
+  return students.map(function (student) {
+    return `Dr .${student}`;
+  });
 }
 
 module.exports = { getOdds, getEvens, getDuplicateCount, makeThemDoctors };
